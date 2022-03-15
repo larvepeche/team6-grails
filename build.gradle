@@ -114,6 +114,4 @@ assets {
     minifyCss = true
 }
 
-tasks.create("stage") {
-    dependsOn("installDist")
-}
+task stage(dependsOn: ['build', 'clean'])
