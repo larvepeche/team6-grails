@@ -17,7 +17,7 @@
 								(<g:link controller='logout' elementId='logout'><g:message code='spring.security.ui.login.logout'/></g:link>)
 							</sec:ifLoggedIn>
 							<sec:ifNotLoggedIn>
-							<a href="#" id="loginLink"><g:message code='spring.security.ui.login.login'/></a>
+%{--							<a href="#" id="loginLink"><g:message code='spring.security.ui.login.login'/></a>--}%
 							</sec:ifNotLoggedIn>
 							<sec:ifSwitched>
 							<a href="${request.contextPath}${securityConfig.switchUser.exitUserUrl}">

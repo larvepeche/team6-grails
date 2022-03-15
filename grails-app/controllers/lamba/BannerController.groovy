@@ -2,85 +2,81 @@ package lamba
 
 import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
-import lamba.User
-import lamba.UserService
-
 import static org.springframework.http.HttpStatus.*
 
 @Secured(value=["hasRole('ROLE_ADMIN')"])
-class UserController {
+class BannerController {
 
-    UserService userService
+    BannerService bannerService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond userService.list(params), model:[userCount: userService.count()]
+        respond bannerService.list(params), model:[bannerCount: bannerService.count()]
     }
 
     def show(Long id) {
-        respond userService.get(id)
+        respond bannerService.get(id)
     }
 
     def create() {
-        respond new User(params)
+        respond new Banner(params)
     }
 
-    def save(User user) {
-        if (user == null) {
+    def save(Banner banner) {
+        if (banner == null) {
             notFound()
             return
         }
 
         try {
-//            userService.save(user)
-            def response = userService.save(params, request)
+            def response = bannerService.save(params, request)
             if (response.isSuccess) {
                 flash.message = AppUtil.infoMessage("saved")
-                redirect(controller: "user", action: "index")
+                redirect(controller: "banner", action: "index")
             } else {
                 flash.redirectParams = response.model
                 flash.message = AppUtil.infoMessage("unable to save")
-                redirect(controller: "user", action: "create")
+                redirect(controller: "banner", action: "create")
             }
         } catch (ValidationException e) {
-            respond user.errors, view:'create'
+            respond banner.errors, view:'create'
             return
         }
 
 //        request.withFormat {
 //            form multipartForm {
-//                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), user.id])
-//                redirect user
+//                flash.message = message(code: 'default.created.message', args: [message(code: 'banner.label', default: 'Banner'), banner.id])
+//                redirect banner
 //            }
-//            '*' { respond user, [status: CREATED] }
+//            '*' { respond banner, [status: CREATED] }
 //        }
     }
 
     def edit(Long id) {
-        respond userService.get(id)
+        respond bannerService.get(id)
     }
 
-    def update(User user) {
-        if (user == null) {
+    def update(Banner banner) {
+        if (banner == null) {
             notFound()
             return
         }
 
         try {
-            userService.save(user)
+            bannerService.save(banner)
         } catch (ValidationException e) {
-            respond user.errors, view:'edit'
+            respond banner.errors, view:'edit'
             return
         }
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user.id])
-                redirect user
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'banner.label', default: 'Banner'), banner.id])
+                redirect banner
             }
-            '*'{ respond user, [status: OK] }
+            '*'{ respond banner, [status: OK] }
         }
     }
 
@@ -90,13 +86,11 @@ class UserController {
             return
         }
 
-        Collection<UserRole> userRoles = UserRole.findAllByUser(User.get(id))
-        userRoles*.delete()
-        userService.delete(id)
+        bannerService.delete(id)
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'banner.label', default: 'Banner'), id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -106,7 +100,7 @@ class UserController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'banner.label', default: 'Banner'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
