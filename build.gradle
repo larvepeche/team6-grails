@@ -113,3 +113,7 @@ assets {
     minifyJs = true
     minifyCss = true
 }
+
+tasks.create("stage") {
+    dependsOn("installDist")
+}
