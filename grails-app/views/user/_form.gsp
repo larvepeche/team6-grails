@@ -1,8 +1,13 @@
 <div class="form-group">
     <label>Username *</label>
     <g:textField name="username" class="form-control" value="${user?.username}" placeholder="Please Enter Contact Name"/>
-%{--    <UIHelper:renderErrorMessage fieldName="name" model="${user}" errorMessage="please.enter.name"/>--}%
 </div>
+
+<div class="form-group">
+    <label>Username *</label>
+    <g:passwordField name="password" class="form-control" value="${user?.password}" placeholder="Password"/>
+</div>
+
 
 <div class="form-group">
 %{--    <label><g:message code="image"/></label>--}%

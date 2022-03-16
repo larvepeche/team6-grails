@@ -21,7 +21,7 @@ class FileUtil {
 //    request.getFile("productFile")
     public static String uploadImage(Long id, MultipartFile multipartFile, String folderName){
         if (id && multipartFile){
-            String imagePath = "${getRootPath()}contact-image/"
+            String imagePath = "${getRootPath()}$folderName/"
             makeDirectory(imagePath)
             multipartFile.transferTo(new File(imagePath, id + "-" + multipartFile.originalFilename))
             return multipartFile.originalFilename

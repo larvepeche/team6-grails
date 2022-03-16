@@ -33,7 +33,6 @@ abstract class UserService implements IUser {
 
     def save(GrailsParameterMap params, HttpServletRequest request) {
         User user = new User(params)
-        user.password = "new"
 
         def response = AppUtil.saveResponse(false, user)
         if(user.validate()) {
