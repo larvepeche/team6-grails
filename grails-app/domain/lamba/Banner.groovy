@@ -9,6 +9,6 @@ class Banner {
     static constraints = {
         textContent nullable: false, blank: false
         image nullable: true, blank: true
-        sliderOrder nullable: true, unique: true
+        sliderOrder nullable: false, unique: true
     }
 }
