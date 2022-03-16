@@ -11,15 +11,21 @@ class UrlMappings {
         }
 
         group "/backoffice", {
-            "/user/$action?/$îd?(.$format)?" (controller: "user")
-            "/banner/$action?/$îd?(.$format)?" (controller: "banner")
+            "/user/$action?/$id?(.$format)?" (controller: "user")
+            "/banner/$action?/$id?(.$format)?" (controller: "banner")
+            "/product/$action?/$id?(.$format)?" (controller: "product")
             "/users" (controller: "user")
             "/banners" (controller: "banner")
+            "/products" (controller: "product")
         }
 
         group "/api", {
             "/users" (resources: "userRest")
-            "/annonces" (resources: "annonce")
+            "/banners" (resources: "bannerRest")
+            "/products" (resources: "productRest")
+            "/user" (resources: "userRest")
+            "/banner" (resources: "bannerRest")
+            "/product" (resources: "productRest")
         }
 
         "/backoffice" {
