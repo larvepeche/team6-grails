@@ -51,4 +51,8 @@ abstract class ProductService implements IProduct {
     def getTop(def max) {
         return Product.executeQuery("from Product order by ranking DESC", [max: max])
     }
+
+    def getByPage(def page) {
+        return Product.findAll("from Product p order by p.name ASC", [offset: 4*(page-1)+1, max: 4])
+    }
 }
