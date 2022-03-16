@@ -4,7 +4,7 @@
 </div>
 
 <div class="form-group">
-    <label>Text Content</label>
+    <label>Price</label>
     <g:field type="number" name="price" class="form-control" value="${product?.price}" placeholder="Price"/>
 </div>
 

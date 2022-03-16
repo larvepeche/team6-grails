@@ -47,4 +47,8 @@ abstract class ProductService implements IProduct {
         }
         return response
     }
+
+    def getTop(def max) {
+        return Product.executeQuery("from Product order by ranking DESC", [max: max])
+    }
 }

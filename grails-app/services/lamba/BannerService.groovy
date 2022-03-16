@@ -46,7 +46,7 @@ abstract class BannerService implements IBanner {
         return response
     }
 
-    def getTop(Integer max) {
-        return Banner.executeQuery("from Banner as b where b.sliderOrder BETWEEN :min AND :max order by slideOrder", [min: 1], [max: max])
+    def getTop(def max) {
+        return Banner.executeQuery("from Banner as b order by b.sliderOrder", [max: max])
     }
 }

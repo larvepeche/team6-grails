@@ -20,12 +20,17 @@ class UrlMappings {
         }
 
         group "/api", {
-            "/users" (resources: "userRest")
-            "/banners" (resources: "bannerRest")
-            "/products" (resources: "productRest")
-            "/user" (resources: "userRest")
+            "/banners" (controller: "bannerRest", action: "index")
+            "/banners/top/$max?" (controller: "bannerRest", action: "top")
+            "/banners/count" (controller: "bannerRest", action: "count")
             "/banner" (resources: "bannerRest")
+
+            "/products" (controller: "productRest", action: "index")
+            "/products/top/$max?" (controller: "productRest", action: "top")
             "/product" (resources: "productRest")
+
+            "/users" (resources: "userRest")
+            "/user" (resources: "userRest")
         }
 
         "/backoffice" {
