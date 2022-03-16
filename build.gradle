@@ -134,3 +134,7 @@ gradle.taskGraph.whenReady {
             test.enabled = false
         }
 }
+
+configurations.all {
+    exclude group: 'org.reactivestreams', module: 'reactive-streams'
+}

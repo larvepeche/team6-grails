@@ -10,13 +10,22 @@ class UrlMappings {
             }
         }
 
+        group "/backoffice", {
+            "/user/$action?/$îd?(.$format)?" (controller: "user")
+            "/banner/$action?/$îd?(.$format)?" (controller: "banner")
+            "/users" (controller: "user")
+            "/banners" (controller: "banner")
+        }
 
         group "/api", {
             "/users" (resources: "userRest")
             "/annonces" (resources: "annonce")
         }
 
-
+        "/backoffice" {
+            controller = "user"
+            action = "index"
+        }
 
         "/"(view:"/index")
         "500"(view:'/error')
