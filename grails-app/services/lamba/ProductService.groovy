@@ -52,7 +52,7 @@ abstract class ProductService implements IProduct {
         return Product.executeQuery("from Product order by ranking DESC", [max: max])
     }
 
-    def getByPage(def page) {
+    def getByPage(Integer page) {
         return Product.findAll("from Product p order by p.name ASC", [offset: 4*(page-1)+1, max: 4])
     }
 }
