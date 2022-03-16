@@ -19,21 +19,11 @@ class FileUtil {
     }
 
 //    request.getFile("productFile")
-    public static String uploadUserImage(Long userId, MultipartFile multipartFile){
-        if (userId && multipartFile){
-            String contactImagePath = "${getRootPath()}contact-image/"
-            makeDirectory(contactImagePath)
-            multipartFile.transferTo(new File(contactImagePath, userId + "-" + multipartFile.originalFilename))
-            return multipartFile.originalFilename
-        }
-        return ""
-    }
-
-    public static String uploadBannerImage(Long bannerId, MultipartFile multipartFile){
-        if (bannerId && multipartFile){
-            String bannerImagePath = "${getRootPath()}banner-image/"
-            makeDirectory(bannerImagePath)
-            multipartFile.transferTo(new File(bannerImagePath, bannerId + "-" + multipartFile.originalFilename))
+    public static String uploadImage(Long id, MultipartFile multipartFile, String folderName){
+        if (id && multipartFile){
+            String imagePath = "${getRootPath()}contact-image/"
+            makeDirectory(imagePath)
+            multipartFile.transferTo(new File(imagePath, id + "-" + multipartFile.originalFilename))
             return multipartFile.originalFilename
         }
         return ""

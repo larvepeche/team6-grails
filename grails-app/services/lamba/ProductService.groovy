@@ -26,7 +26,7 @@ abstract class ProductService implements IProduct {
     def uploadImage(Product product, HttpServletRequest request) {
         if (request.getFile("productImage")){
             if(!request.getFile("productImage").filename.equals("")) {
-                String image = FileUtil.uploadBannerImage(product.id, request.getFile("productImage"))
+                String image = FileUtil.uploadImage(product.id, request.getFile("productImage"), "product-image")
                 if (!image.equals("")) {
                     product.image = image
                     product.save(flush: true)

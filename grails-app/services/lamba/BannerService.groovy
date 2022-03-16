@@ -25,7 +25,7 @@ interface IBanner {
 abstract class BannerService implements IBanner {
     def uploadImage(Banner banner, HttpServletRequest request) {
         if (request.getFile("bannerImage") && !request.getFile("bannerImage").filename.equals("")){
-            String image = FileUtil.uploadBannerImage(banner.id, request.getFile("bannerImage"))
+            String image = FileUtil.uploadImage(banner.id, request.getFile("bannerImage"), "banner-image")
             if (!image.equals("")){
                 banner.image = image
                 banner.save(flush:true)

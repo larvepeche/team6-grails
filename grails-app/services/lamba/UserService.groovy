@@ -23,7 +23,7 @@ interface IUser {
 abstract class UserService implements IUser {
     def uploadImage(User user, HttpServletRequest request) {
         if (request.getFile("contactImage") && !request.getFile("contactImage").filename.equals("")){
-            String image = FileUtil.uploadUserImage(user.id, request.getFile("contactImage"))
+            String image = FileUtil.uploadImage(user.id, request.getFile("contactImage"), "contact-image")
             if (!image.equals("")){
                 user.image = image
                 user.save(flush:true)
