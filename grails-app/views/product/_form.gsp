@@ -11,6 +11,6 @@
 <div class="form-group">
     <g:field name="productImage" class="form-control" type="file" placeholder="Please Upload Image"/>
     <g:if test="${product?.image}">
-        <img src="${resource(dir: "banner-image", file: "/${product.id}-${product.image}")}" class="img-thumbnail" style="margin-top: 10px; height: 100px; width: 100px;"/>
+        <img src="${resource(dir: "product-image", file: "/${product.id}-${product.image}")}" class="img-thumbnail" style="margin-top: 10px; height: 100px; width: 100px;"/>
     </g:if>
 </div>
