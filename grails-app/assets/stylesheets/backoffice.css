@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #FAFAFB;
+    height: 100%;
+    margin: 0;
+    font-family: Calibri;
+}
+
+body {
+    display: grid;
+    grid-template-columns: [left-nav] 260px [main] 1fr;
+}
+
+.left-nav {
+    background-color: #FFF;
+    height: 100%;
+    padding: 0 20px;
+    font-size: 1.3rem;
+}
+
+.trademark .logo {
+    width: 50px;
+    height: auto;
+}
+
+.trademark {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.trademark .title {
+    font-size: 2rem;
+}
+
+.smooth-shadow {
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+.left-nav .section {
+    display: flex;
+    align-items: center;
+    color: #707a84;
+    overflow: hidden;
+    height: 50px;
+}
+
+.left-nav .section.active {
+    background-color: #5BB0FF;
+    border-radius: 10px;
+    color: white;
+}
+
+.left-nav .img-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 40px;
+}
+
+.left-nav .section.active .img-container {
+    background-color: #389FFF;
+}
+
+.left-nav .section.active img {
+    filter:invert(100%) sepia(100%) saturate(2%) hue-rotate(323deg) brightness(102%) contrast(101%);
+}
+
+.left-nav .section img {
+    width: 25px;
+    height: auto;
+    filter: invert(61%) sepia(13%) saturate(336%) hue-rotate(169deg) brightness(92%) contrast(87%);
+    margin-right: 5px;
+}
+
+.left-nav .section span {
+    margin-left: 5px;
+}
+
+.prof-search {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+}
+
+.profile {
+    background-color: white;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.profile .caret-down {
+    display: inline;
+    width: 20px;
+    margin-left: 10px;
+}
+
+.profile .pic {
+    width: 40px;
+    height: 40px;
+    object-fit: cover; /* Do not scale the image */
+    object-position: center;
+    border-radius: 7px;
+    margin-right: 10px;
+}
+
+.searchbar, .profile {
+    height: 50px;
+    border-radius: 10px;
+}
+
+.searchbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-right: 40px;
+    width: 400px;
+}
+
+.searchbar input {
+    border: none;
+    padding: 0 20px;
+    font-size: 1rem;
+    outline: none;
+    width: 360px;
+}
+
+.searchbar .searchBtn {
+    width: 20px;
+    filter:invert(100%) sepia(100%) saturate(2%) hue-rotate(323deg) brightness(102%) contrast(101%);
+}
+
+.searchbar .searchBtnContainer {
+    background-color: #2697FF;
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+}

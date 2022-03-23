@@ -8,54 +8,39 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
-
+    <asset:stylesheet src="backoffice.css.css"/>
     <g:layoutHead/>
 </head>
 
 <body>
+    <nav class="left-nav">
+        <div class="trademark">
+            <asset:image class="logo" src="SVGs/Fill/apple-logo-fill.svg" />
+            <div class="title">Lamba™</div>
+        </div>
+        <div class="section active"><div class="img-container"><asset:image src="SVGs/Regular/users.svg" /></div><span><g:message code="backoffice.users" /></span></div>
+        <div class="section"><div class="img-container"><asset:image src="SVGs/Regular/t-shirt.svg" /></div><span><g:message code="backoffice.products" /></span></div>
+        <div class="section"><div class="img-container"><asset:image src="SVGs/Regular/image.svg" /></div><span><g:message code="backoffice.banners" /></span></div>
+    </nav>
 
-<nav class="navbar navbar-expand-lg navbar-dark navbar-static-top" role="navigation">
-    <a class="navbar-brand" href="/#"><asset:image src="grails.svg" alt="Grails Logo"/></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <div>
+        <div class="prof-search">
+                <form class="searchbar smooth-shadow">
+                    <g:textField name="searchInput" placeholder="Search" />
+                    <div class="searchBtnContainer">
+                        <asset:image class="searchBtn" src="SVGs/Regular/magnifying-glass.svg" />
+                    </div>
+                </form>
 
-    <div class="collapse navbar-collapse" aria-expanded="false" style="height: 0.8px;" id="navbarContent">
-        <ul class="nav navbar-nav ml-auto">
-            <g:pageProperty name="page.nav"/>
-        </ul>
+            <div class="profile smooth-shadow">
+                <asset:image class="pic" src="Michael.JPG" />
+                <span>Michael Randria</span>
+                <asset:image class="caret-down" src="SVGs/Regular/caret-down.svg" />
+            </div>
+        </div>
+
+        <g:layoutBody/>
     </div>
-
-</nav>
-
-<g:layoutBody/>
-
-<div class="footer row" role="contentinfo">
-    <div class="col">
-        <a href="http://guides.grails.org" target="_blank">
-            <asset:image src="advancedgrails.svg" alt="Grails Guides" class="float-left"/>
-        </a>
-        <strong class="centered"><a href="http://guides.grails.org" target="_blank">Grails Guides</a></strong>
-        <p>Building your first Grails app? Looking to add security, or create a Single-Page-App? Check out the <a href="http://guides.grails.org" target="_blank">Grails Guides</a> for step-by-step tutorials.</p>
-
-    </div>
-    <div class="col">
-        <a href="http://docs.grails.org" target="_blank">
-            <asset:image src="documentation.svg" alt="Grails Documentation" class="float-left"/>
-        </a>
-        <strong class="centered"><a href="http://docs.grails.org" target="_blank">Documentation</a></strong>
-        <p>Ready to dig in? You can find in-depth documentation for all the features of Grails in the <a href="http://docs.grails.org" target="_blank">User Guide</a>.</p>
-
-    </div>
-
-    <div class="col">
-        <a href="https://grails-slack.cfapps.io" target="_blank">
-            <asset:image src="slack.svg" alt="Grails Slack" class="float-left"/>
-        </a>
-        <strong class="centered"><a href="https://grails-slack.cfapps.io" target="_blank">Join the Community</a></strong>
-        <p>Get feedback and share your experience with other Grails developers in the community <a href="https://grails-slack.cfapps.io" target="_blank">Slack channel</a>.</p>
-    </div>
-</div>
 
 
 <div id="spinner" class="spinner" style="display:none;">
