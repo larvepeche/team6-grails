@@ -23,9 +23,9 @@
                 <table border = "1">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th># Users</th>
                             <th>Username</th>
-                            <th colspan="2">Action</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,9 +37,37 @@
                                 </div>
                                 <span>Mariano</span>
                             </td>
-                            <td>modifier</td>
-                            <td>supprimer</td>
+                            <td><div class="wrapper">
+                                <span class="mbtn Edit">Edit</span>
+                                <span class="mbtn Delete">Delete</span>
+                            </div></td>
                         </tr>
+                    <tr>
+                            <td>1</td>
+                            <td>
+                                <div class="img-container">
+                                    <asset:image class="pic" src="Michael.JPG" />
+                                </div>
+                                <span>Mariano</span>
+                            </td>
+                            <td><div class="wrapper">
+                                <span class="mbtn Edit">Edit</span>
+                                <span class="mbtn Delete">Delete</span>
+                            </div></td>
+                        </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <div class="img-container">
+                                <asset:image class="pic" src="Michael.JPG" />
+                            </div>
+                            <span>Mariano</span>
+                        </td>
+                        <td><div class="wrapper">
+                            <span class="mbtn Edit">Edit</span>
+                            <span class="mbtn Delete">Delete</span>
+                        </div></td>
+                    </tr>
                     </tbody>
                 </table>
             </div>

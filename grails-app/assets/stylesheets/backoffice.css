@@ -182,21 +182,73 @@ body {
     cursor: pointer;
     border-radius : 15px;
 }
+thead{
+    border-bottom: 1px solid #F4F4F4;
+}
 .list-container table{
     border-collapse: collapse;
     width : 100%;
     background: white;
+    border:0;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+.list-container table tbody tr:nth-child(odd){
+    background: #f3f8fe;
 }
 .list-container table th{
     text-align: left;
+    border:0;
 }
 .list-container table td,.list-container table th {
-    padding:10px;
+    padding:20px;
+    border:0;
 }
 .list-container table .img-container{
     width : 50px;
     height: 50px;
+    overflow: hidden;
+    border-radius: 100%;
+    margin-right : 15px;
+}
+.list-container table{
+    margin-top : 20px;
+    border-radius: 20px;
 }
 .list-container table .img-container img{
-    width:100%;
+    width : 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.list-container table tr td:nth-child(2), .list-container table tr td:last-child div {
+    display: flex;
+    border: 0;
+    align-items: center;
+}
+td .wrapper span{
+    margin : 0 20px 0 0;
+}
+.mbtn{
+    box-sizing: border-box;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color : white;
+    font-weight: 500;
+    border:2px solid transparent;
+    cursor: pointer;
+}
+.mbtn.Edit{
+    background: darkorange;
+}
+.mbtn.Delete{
+    background: orangered;
+}
+.mbtn.Edit:hover{
+    border:2px solid darkorange;
+    background: none;
+    color:darkorange;
+}
+.mbtn.Delete:hover{
+    border:2px solid orangered;
+    background: none;
+    color:orangered;
 }
