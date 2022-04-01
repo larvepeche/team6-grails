@@ -25,6 +25,7 @@
       <a href="#gestion-utilisateurs">Gestion Utilisateurs</a>
     </li>
     <li><a href="#gestion-produits">Gestion Produits</a></li>
+    <li><a href="#identifiants">Identifiants</a></li>
   </ol>
 </details>
 
@@ -49,3 +50,9 @@ Démo: <a href="https://team6-grails.herokuapp.com/backoffice/users">Gestion Uti
 * CRUD Produits
 
 Démo: <a href="https://team6-grails.herokuapp.com/backoffice/products">Gestion Produits</a>
+
+## Identifiants
+
+* admin/admin (admin)
+* Naruto/password (simple utilisateur)
+* Sasuke/password (simple utilisateur)
