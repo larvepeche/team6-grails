@@ -13,6 +13,37 @@
 </head>
 
 <body>
-    <div>Petit panier</div>
+    <div class="container-fluid">
+        <div class="new">
+            <p>users</p>
+            <button>+ Add new</button>
+        </div>
+        <section class="list-container">
+            <div class="content">
+                <table border = "1">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <div class="img-container">
+                                    <asset:image class="pic" src="Michael.JPG" />
+                                </div>
+                                <span>Mariano</span>
+                            </td>
+                            <td>modifier</td>
+                            <td>supprimer</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
 </body>
 </html>

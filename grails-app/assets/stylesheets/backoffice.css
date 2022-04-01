@@ -85,15 +85,19 @@ body {
 }
 
 .prof-search {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    position: relative;
     display: flex;
+    justify-content: end;
+    padding :10px;
+    flex-wrap: wrap;
+}
+.prof-search > *{
+    margin:10px;
 }
 
 .profile {
     background-color: white;
-    padding: 5px;
+    padding: 10px;
     display: flex;
     align-items: center;
     font-weight: 600;
@@ -111,7 +115,7 @@ body {
     height: 40px;
     object-fit: cover; /* Do not scale the image */
     object-position: center;
-    border-radius: 7px;
+    border-radius: 100%;
     margin-right: 10px;
 }
 
@@ -125,8 +129,9 @@ body {
     display: flex;
     align-items: center;
     overflow: hidden;
-    margin-right: 40px;
     width: 400px;
+    background: white;
+    flex-grow :1;
 }
 
 .searchbar input {
@@ -153,4 +158,45 @@ body {
     position: absolute;
     top: 6px;
     right: 6px;
+}
+.container-fluid{
+    padding-left:3vw;
+    padding-right:3vw;
+}
+.new{
+    display : flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.new p{
+    font-size : 25px;
+    font-weight:600;
+    line-height: 0;
+}
+.new button{
+    font-size:15px;
+    padding:15px 30px;
+    background: #2697FF ;
+    color : white;
+    border:0;
+    cursor: pointer;
+    border-radius : 15px;
+}
+.list-container table{
+    border-collapse: collapse;
+    width : 100%;
+    background: white;
+}
+.list-container table th{
+    text-align: left;
+}
+.list-container table td,.list-container table th {
+    padding:10px;
+}
+.list-container table .img-container{
+    width : 50px;
+    height: 50px;
+}
+.list-container table .img-container img{
+    width:100%;
 }

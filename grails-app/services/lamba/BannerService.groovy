@@ -23,6 +23,7 @@ interface IBanner {
 @Service(Banner)
 @Transactional
 abstract class BannerService implements IBanner {
+
     def uploadImage(Banner banner, HttpServletRequest request) {
         if (request.getFile("bannerImage") && !request.getFile("bannerImage").filename.equals("")){
             String image = FileUtil.uploadImage(banner.id, request.getFile("bannerImage"), "banner-image")
