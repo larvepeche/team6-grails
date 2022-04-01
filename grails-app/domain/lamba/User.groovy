@@ -36,5 +36,6 @@ class User implements Serializable {
 
     static mapping = {
 	    password column: '`password`'
+        panier joinTable: 'panier', column: 'user_id'
     }
 }

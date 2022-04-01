@@ -21,6 +21,23 @@ interface IUser {
 @Service(User)
 @Transactional
 abstract class UserService implements IUser {
+
+    def removeFromCart(def productId, User user) {
+        Product product = Product.get(productId)
+        if(product != null) {
+            user.removeFromPanier(product)
+            user.save(failOnError: true, flush: true)
+        }
+    }
+
+    def addToCart(def productId, User user) {
+        Product product = Product.get(productId)
+        if(product != null) {
+            user.addToPanier(product)
+            user.save(failOnError: true, flush: true)
+        }
+    }
+
     def uploadImage(User user, HttpServletRequest request) {
         if (request.getFile("contactImage") && !request.getFile("contactImage").filename.equals("")){
             String image = FileUtil.uploadImage(user.id, request.getFile("contactImage"), "contact-image")

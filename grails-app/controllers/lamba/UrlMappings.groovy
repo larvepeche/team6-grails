@@ -31,7 +31,9 @@ class UrlMappings {
             "/product" (resources: "productRest")
 
             "/users" (resources: "userRest")
-            "/user" (resources: "userRest")
+            "/users/panier" (controller: "userRest", action: "panier")
+            post "/users/panier/$productId" (controller: "userRest", action: "addToCart")
+            delete "/users/panier/$productId" (controller: "userRest", action: "removeFromCart")
         }
 
         "/backoffice" {
