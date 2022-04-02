@@ -34,6 +34,7 @@ class UrlMappings {
             "/users/panier" (controller: "userRest", action: "panier")
             post "/users/panier/$productId" (controller: "userRest", action: "addToCart")
             delete "/users/panier/$productId" (controller: "userRest", action: "removeFromCart")
+            "/users/panier/validate/$userId" (controller: "userRest", action: "validateCart")
         }
 
         "/backoffice" {

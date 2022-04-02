@@ -22,6 +22,15 @@ interface IUser {
 @Transactional
 abstract class UserService implements IUser {
 
+    def validateCart(User user) {
+        user.panier.each {
+            def product ->
+                product.quantity -= product.cartQty
+                product.cartQty= -1
+        }
+        user.save(flush: true, failOnError:true)
+    }
+
     def removeFromCart(def productId, User user) {
         Product product = Product.get(productId)
         if(product != null) {

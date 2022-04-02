@@ -26,7 +26,7 @@ class User implements Serializable {
         (UserRole.findAllByUser(this) as List<UserRole>)*.role as Set<Role>
     }
 
-    static hasMany = [panier: Product]
+    static hasMany = [panier: ProductCart]
 
     static constraints = {
         password nullable: false, blank: false, password: true

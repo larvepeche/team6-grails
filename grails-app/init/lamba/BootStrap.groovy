@@ -36,7 +36,7 @@ class BootStrap {
                 }
         }
 
-        users[0].addToPanier(new Product(name: 'Trondro', price: 99, image: 'trondro.jpg'))
+        users[0].addToPanier(new ProductCart(name: 'Trondro', price: 99, image: 'trondro.jpg', quantity: 10, cartQty: 5))
                 .save()
 
         [

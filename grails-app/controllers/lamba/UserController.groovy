@@ -14,8 +14,13 @@ class UserController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def panier() {
-        [panier: 1]
+    def validateCart() {
+        User user = User.get(params.userId)
+        user.panier.each {
+            def product ->
+                product.quantity -= product.cartQty
+        }
+        user.save()
     }
 
     def index(Integer max) {

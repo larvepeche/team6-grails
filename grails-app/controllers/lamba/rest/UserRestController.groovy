@@ -43,4 +43,10 @@ class UserRestController extends RestfulController<User> {
         userService.removeFromCart(params.productId, user)
         respond user.panier
     }
+
+    def validateCart() {
+        User user = User.get(params.userId)
+        userService.validateCart(user)
+        respond user.panier
+    }
 }
