@@ -8,70 +8,49 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <meta name="layout" content="backoffice" />
+    <meta name="layout" content="backoffice"/>
     <title></title>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="new">
-            <p>users</p>
-            <button>+ Add new</button>
-        </div>
-        <section class="list-container">
-            <div class="content">
-                <table border = "1">
-                    <thead>
-                        <tr>
-                            <th># Users</th>
-                            <th>Username</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <div class="img-container">
-                                    <asset:image class="pic" src="Michael.JPG" />
-                                </div>
-                                <span>Mariano</span>
-                            </td>
-                            <td><div class="wrapper">
-                                <span class="mbtn Edit">Edit</span>
-                                <span class="mbtn Delete">Delete</span>
-                            </div></td>
-                        </tr>
+<div class="container-fluid">
+    <div class="new">
+        <p>users</p>
+        <button>+ Add new</button>
+    </div>
+    <section class="list-container">
+        <div class="content">
+            <table border="1">
+                <thead>
+                <tr>
+                    <th># Users</th>
+                    <th>Username</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <g:each in="${userList}" var="user">
                     <tr>
-                            <td>1</td>
-                            <td>
-                                <div class="img-container">
-                                    <asset:image class="pic" src="Michael.JPG" />
-                                </div>
-                                <span>Mariano</span>
-                            </td>
-                            <td><div class="wrapper">
-                                <span class="mbtn Edit">Edit</span>
-                                <span class="mbtn Delete">Delete</span>
-                            </div></td>
-                        </tr>
-                    <tr>
-                        <td>1</td>
+                        <td>${user.id}</td>
                         <td>
-                            <div class="img-container">
-                                <asset:image class="pic" src="Michael.JPG" />
-                            </div>
-                            <span>Mariano</span>
+                            <g:if test="${user?.image}">
+                                <div class="img-container">
+                                    <img src="${resource(dir: "contact-image", file: "/${user.id}-${user.image}")}" class="img-thumbnail" style="margin-top: 10px; height: 100px; width: 100px;"/>
+                                </div>
+                            </g:if>
+                            <span>${user.username}</span>
                         </td>
                         <td><div class="wrapper">
                             <span class="mbtn Edit">Edit</span>
+                            <g:link class="mbtn Edit" action="validateCart" params="[id: user.id]">Validate Cart</g:link>
                             <span class="mbtn Delete">Delete</span>
                         </div></td>
                     </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </div>
+                </g:each>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
 </body>
 </html>

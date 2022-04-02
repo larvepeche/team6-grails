@@ -12,6 +12,7 @@ class UrlMappings {
 
         group "/backoffice", {
             "/user/$action?/$id?(.$format)?" (controller: "user")
+            "/users/$action?/$id?(.$format)?" (controller: "user")
             "/banner/$action?/$id?(.$format)?" (controller: "banner")
             "/product/$action?/$id?(.$format)?" (controller: "product")
             "/users" (controller: "user")

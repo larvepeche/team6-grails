@@ -15,12 +15,13 @@ class UserController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def validateCart() {
-        User user = User.get(params.userId)
-        user.panier.each {
-            def product ->
-                product.quantity -= product.cartQty
-        }
-        user.save()
+        User user = User.get(params.id)
+        userService.validateCart(user)
+        redirect action:"index", method:"GET"
+    }
+
+    def panier() {
+        respond userService.list(params), model:[userCount: userService.count()]
     }
 
     def index(Integer max) {
