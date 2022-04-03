@@ -36,10 +36,9 @@ class BootStrap {
                 }
         }
 
-        users[0].addToPanier(new ProductCart(name: 'Trondro', price: 99, image: 'trondro.jpg', quantity: 10, cartQty: 5))
-                .save()
 
-        [
+
+        def products = [
                 new Product(name: 'Lens', price: 10, image: 'lens.jpg', quantity: 10),
                 new Product(name: 'Coton', price: 9, image: 'coton.jpg', quantity: 9),
                 new Product(name: 'Kofehy', price: 15, image: 'kofehy.jpg', quantity: 8),
@@ -57,7 +56,12 @@ class BootStrap {
                 new Product(name: 'Vegeta', price: 12, image: 'vegeta.jpg', quantity: 6),
                 new Product(name: 'Trunks', price: 22, image: 'trunks.jpg', quantity: 7),
                 new Product(name: 'Goten', price: 22, image: 'goten.jpg', quantity: 8),
-        ].each {
+        ]
+
+        users[0].addToPanier(new ProductCart(product: products[0], cartQty: 5))
+                .save()
+
+        products.each {
             def product ->
                 product.save(flush: true, failOnError: true)
         }

@@ -1,6 +1,7 @@
 package lamba
 
-class ProductCart extends Product {
+class ProductCart {
+    Product product
     Integer cartQty
 
     static constraints = {

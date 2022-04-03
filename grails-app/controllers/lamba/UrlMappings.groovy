@@ -25,15 +25,18 @@ class UrlMappings {
             "/banners/top/$max?" (controller: "bannerRest", action: "top")
             "/banners/count" (controller: "bannerRest", action: "count")
             "/banner" (resources: "bannerRest")
+            "/banners" (resources: "bannerRest")
 
             "/products" (controller: "productRest", action: "index")
             "/products/top/$max?" (controller: "productRest", action: "top")
             "/products/$action?" (controller: "productRest")
             "/product" (resources: "productRest")
+            "/products" (resources: "productRest")
 
             "/users" (resources: "userRest")
+            "/user" (resources: "userRest")
             "/users/panier" (controller: "userRest", action: "panier")
-            post "/users/panier/$productId" (controller: "userRest", action: "addToCart")
+            post "/users/panier/$productId/$quantity" (controller: "userRest", action: "addToCart")
             delete "/users/panier/$productId" (controller: "userRest", action: "removeFromCart")
             "/users/panier/validate/$userId" (controller: "userRest", action: "validateCart")
         }

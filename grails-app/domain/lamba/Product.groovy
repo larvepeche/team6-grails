@@ -15,8 +15,4 @@ class Product {
         ranking nullable: false
         quantity nullable: false
     }
-
-    static mapping = {
-        tablePerHierarchy false
-    }
 }

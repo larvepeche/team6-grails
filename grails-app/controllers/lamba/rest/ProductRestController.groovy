@@ -8,7 +8,7 @@ import lamba.Product
 import lamba.User
 import lamba.UserRole
 
-@Secured(value=["hasRole('ROLE_ADMIN')"])
+@Secured(value=["hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT')"])
 class ProductRestController extends RestfulController<Product> {
     static responseFormats = ['json', 'xml']
 

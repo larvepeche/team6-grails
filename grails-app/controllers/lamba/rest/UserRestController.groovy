@@ -31,11 +31,9 @@ class UserRestController extends RestfulController<User> {
     }
 
     def addToCart() {
-//        if(request.method == 'POST') {
             User user = springSecurityService.currentUser
-            userService.addToCart(params.productId, user)
+            userService.updateCart(params.productId, user, params.quantity)
             respond user.panier
-//        }
     }
 
     def removeFromCart() {
