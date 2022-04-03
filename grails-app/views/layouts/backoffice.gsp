@@ -18,9 +18,9 @@
             <asset:image class="logo" src="SVGs/Fill/apple-logo-fill.svg" />
             <div class="title">Lamba™</div>
         </div>
-        <div class="section active"><div class="img-container"><asset:image src="SVGs/Regular/users.svg" /></div><span><g:message code="backoffice.users" /></span></div>
-        <div class="section"><div class="img-container"><asset:image src="SVGs/Regular/t-shirt.svg" /></div><span><g:message code="backoffice.products" /></span></div>
-        <div class="section"><div class="img-container"><asset:image src="SVGs/Regular/image.svg" /></div><span><g:message code="backoffice.banners" /></span></div>
+        <div class="section ${session.active == 'User' ? 'active': ''}"><a href="${createLink(uri: '/backoffice/users')}" class="img-container"><asset:image src="SVGs/Regular/users.svg" /></a><span><g:message code="backoffice.users" /></span></div>
+        <div class="section ${session.active == 'Product' ? 'active': ''}"><a href="${createLink(uri: '/backoffice/products')}" class="img-container"><asset:image src="SVGs/Regular/t-shirt.svg" /></a><span><g:message code="backoffice.products" /></span></div>
+        <div class="section ${session.active == 'Banner' ? 'active': ''}"><a href="${createLink(uri: '/backoffice/banners')}" class="img-container"><asset:image src="SVGs/Regular/image.svg" /></a><span><g:message code="backoffice.banners" /></span></div>
     </nav>
 
     <div>
@@ -32,15 +32,25 @@
                     </div>
                 </form>
 
-            <div class="profile smooth-shadow">
-                <asset:image class="pic" src="Michael.JPG" />
-                <span>Michael Randria</span>
-                <asset:image class="caret-down" src="SVGs/Regular/caret-down.svg" />
-            </div>
+            <sec:ifLoggedIn>
+                <div class="profile smooth-shadow">
+                    <g:if test="${curUser.image != null}">
+                        <div class="img-container">
+                            <img src="${resource(dir: "contact-image", file: "/${curUser.id}-${curUser.image}")}" class="pic"/>
+                        </div>
+                    </g:if>
+%{--                    <asset:image class="pic" src="Michael.JPG" />--}%
+                    <span>${sec.loggedInUserInfo(field: 'username')}</span>
+                    <asset:image class="caret-down" src="SVGs/Regular/caret-down.svg" />
+                </div>
+            </sec:ifLoggedIn>
+
         </div>
 
         <g:layoutBody/>
     </div>
+
+
 
 
 <div id="spinner" class="spinner" style="display:none;">

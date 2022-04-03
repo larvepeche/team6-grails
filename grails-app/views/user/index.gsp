@@ -1,28 +1,56 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta name="layout" content="banner" />
-        <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
-        <title><g:message code="default.list.label" args="[entityName]" /></title>
-    </head>
-    <body>
-        <a href="#list-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
-        <div id="list-user" class="content scaffold-list" role="main">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
-            <g:if test="${flash.message}">
-                <div class="message" role="status">${flash.message}</div>
-            </g:if>
-            <f:table collection="${userList}" />
+<%--
+  Created by IntelliJ IDEA.
+  User: micha
+  Date: 22/03/2022
+  Time: 16:27
+--%>
 
-            <div class="pagination">
-                <g:paginate total="${userCount ?: 0}" />
-            </div>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<html>
+<head>
+    <meta name="layout" content="backoffice"/>
+    <title></title>
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="new">
+        <p>users</p>
+        <g:link class="create" action="create">Add New Users</g:link>
+    </div>
+    <section class="list-container">
+        <div class="content">
+            <table border="1">
+                <thead>
+                <tr>
+                    <th># Users</th>
+                    <th>Username</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <g:each in="${userList}" var="user">
+                    <tr>
+                        <td>${user.id}</td>
+                        <td>
+                            <g:if test="${user?.image}">
+                                <div class="img-container">
+                                    <img src="${resource(dir: "contact-image", file: "/${user.id}-${user.image}")}" class="img-thumbnail" style="margin-top: 10px; height: 100px; width: 100px;"/>
+                                </div>
+                            </g:if>
+                            <span>${user.username}</span>
+                        </td>
+                        <td><div class="wrapper">
+                            <span class="mbtn Edit">Edit</span>
+                            <span><g:link class="mbtn Cart" action="validateCart" params="[id: user.id]">Validate Cart</g:link></span>
+                            <span class="mbtn Delete">Delete</span>
+                        </div></td>
+                    </tr>
+                </g:each>
+                </tbody>
+            </table>
         </div>
-    </body>
+    </section>
+</div>
+</body>
 </html>

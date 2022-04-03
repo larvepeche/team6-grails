@@ -239,6 +239,12 @@ td .wrapper span{
 .mbtn.Edit{
     background: darkorange;
 }
+
+.mbtn.Cart {
+    background: #005cbf;
+    text-decoration: none;
+}
+
 .mbtn.Delete{
     background: orangered;
 }

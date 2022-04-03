@@ -1,19 +1,23 @@
 package lamba
 
+import grails.plugin.springsecurity.SpringSecurityService
 import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
-@Secured(value=["hasRole('ROLE_ADMIN')"])
+@Secured(value=["hasAnyRole('ROLE_ADMIN','ROLE_CLIENT')"])
 class ProductController {
 
     ProductService productService
+    SpringSecurityService springSecurityService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond productService.list(params), model:[productCount: productService.count()]
+        User user = User.get(springSecurityService.currentUserId)
+        session.active = 'Product'
+        respond productService.list(params), model:[productCount: productService.count(), curUser: user]
     }
 
     def show(Long id) {

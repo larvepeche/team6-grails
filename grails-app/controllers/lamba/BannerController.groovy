@@ -1,5 +1,6 @@
 package lamba
 
+import grails.plugin.springsecurity.SpringSecurityService
 import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
@@ -8,12 +9,15 @@ import static org.springframework.http.HttpStatus.*
 class BannerController {
 
     BannerService bannerService
+    SpringSecurityService springSecurityService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond bannerService.list(params), model:[bannerCount: bannerService.count()]
+        session.active = 'Banner'
+        User user = User.get(springSecurityService.currentUserId)
+        respond bannerService.list(params), model:[bannerCount: bannerService.count(), curUser: user]
     }
 
     def show(Long id) {

@@ -1,5 +1,6 @@
 package lamba
 
+import grails.plugin.springsecurity.SpringSecurityService
 import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import lamba.User
@@ -7,9 +8,11 @@ import lamba.UserService
 
 import static org.springframework.http.HttpStatus.*
 
-@Secured(value=["hasRole('ROLE_ADMIN')"])
+@Secured(value=["hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT')"])
 class UserController {
 
+
+    SpringSecurityService springSecurityService
     UserService userService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
@@ -20,13 +23,11 @@ class UserController {
         redirect action:"index", method:"GET"
     }
 
-    def panier() {
-        respond userService.list(params), model:[userCount: userService.count()]
-    }
-
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond userService.list(params), model:[userCount: userService.count()]
+        User user = User.get(springSecurityService.currentUserId)
+        session.active = 'User'
+        respond userService.list(params), model:[userCount: userService.count(), curUser: user]
     }
 
     def show(Long id) {
@@ -34,7 +35,8 @@ class UserController {
     }
 
     def create() {
-        respond new User(params)
+        User user = User.get(springSecurityService.currentUserId)
+        respond new User(params), model:  [curUser: user]
     }
 
     def save(User user) {
