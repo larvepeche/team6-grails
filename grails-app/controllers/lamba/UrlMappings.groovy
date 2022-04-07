@@ -29,7 +29,8 @@ class UrlMappings {
 
             "/products" (controller: "productRest", action: "index")
             "/products/top/$max?" (controller: "productRest", action: "top")
-            "/products/$action?" (controller: "productRest")
+            "/products/count" (controller: "productRest", action: "count")
+            "/products/list" (controller: "productRest", action: "list")
             "/product" (resources: "productRest")
             "/products" (resources: "productRest")
 
